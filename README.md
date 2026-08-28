@@ -94,4 +94,4 @@ Open this directory in VS Code, press F5, and run the extension in the Extension
 
 ## Publishing
 
-See [PUBLISHING.md](./PUBLISHING.md).
+See `PUBLISHING.md` in this repository.
