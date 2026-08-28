@@ -1,15 +1,38 @@
 {
   "name": "shareone-vscode",
-  "displayName": "ShareOne",
-  "description": "Publish local files to ShareOne links and collect review comments in VS Code.",
+  "displayName": "ShareOne: Publish Links and Review Comments",
+  "description": "Publish HTML, Markdown, TXT, PDF, Word, and PowerPoint files as ShareOne links, then review comments in VS Code.",
   "version": "0.0.1",
   "publisher": "shareone",
   "license": "MIT",
+  "homepage": "https://shareone.vip",
+  "icon": "media/shareone.png",
+  "bugs": {
+    "url": "https://shareone.vip"
+  },
+  "qna": false,
   "engines": {
     "vscode": "^1.96.0"
   },
   "categories": [
     "Other"
+  ],
+  "keywords": [
+    "shareone",
+    "share",
+    "publish",
+    "link",
+    "markdown",
+    "html",
+    "txt",
+    "pdf",
+    "word",
+    "powerpoint",
+    "comments",
+    "review",
+    "feedback",
+    "collaboration",
+    "vscode"
   ],
   "activationEvents": [
     "onUri",
@@ -28,6 +51,9 @@
     "dist/",
     "media/",
     "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "PUBLISHING.md",
     "package.json"
   ],
   "scripts": {
