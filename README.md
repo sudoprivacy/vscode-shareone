@@ -86,11 +86,15 @@ Use a local URL only when testing against a local ShareOne environment.
 ## Development
 
 ```bash
-npm install
+npm ci
 npm run compile
 ```
 
 Open this directory in VS Code, press F5, and run the extension in the Extension Development Host.
+
+See [CONTRIBUTING.md](./CONTRIBUTING.md) before opening pull requests.
+
+Security issues should be reported privately. See [SECURITY.md](./SECURITY.md).
 
 ## Publishing
 
