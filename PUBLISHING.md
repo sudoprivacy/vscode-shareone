@@ -21,7 +21,7 @@ npm run compile
 ## Package A VSIX
 
 ```bash
-npx @vscode/vsce package
+npm run package:vsix
 ```
 
 Install the generated package locally:
@@ -42,10 +42,56 @@ Then run:
 
 ```bash
 npx @vscode/vsce login shareone
-npx @vscode/vsce publish
+npm run publish:marketplace
 ```
 
 If your publisher ID is not `shareone`, update `publisher` in `package.json` before publishing.
+
+## CI Publishing
+
+GitHub Actions builds a VSIX on every pull request and every push to `main`.
+
+Marketplace publishing only runs when pushing a version tag such as `v0.0.1`.
+
+Before using CI publishing:
+
+1. Create or confirm the `shareone` publisher at:
+
+   ```txt
+   https://marketplace.visualstudio.com/manage
+   ```
+
+2. Create a Marketplace token with `Marketplace > Manage` scope.
+
+3. Add the token to GitHub:
+
+   ```txt
+   Repository Settings > Secrets and variables > Actions > New repository secret
+   ```
+
+   Secret name:
+
+   ```txt
+   VSCE_PAT
+   ```
+
+4. For the first release, push a tag matching the current version:
+
+   ```bash
+   git tag v0.0.1
+   git push origin v0.0.1
+   ```
+
+5. For later releases, bump the package version and push the generated tag:
+
+   ```bash
+   npm version patch
+   git push --follow-tags
+   ```
+
+Visual Studio Marketplace rejects duplicate versions, so every publish needs a new `package.json` version.
+
+Microsoft plans to retire global Azure DevOps PATs on December 1, 2026. Move this workflow to Microsoft Entra ID secure automated publishing before then.
 
 ## Publish To Open VSX
 
