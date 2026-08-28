@@ -1,0 +1,176 @@
+{
+  "name": "shareone-vscode",
+  "displayName": "ShareOne",
+  "description": "Publish local files to ShareOne links and collect review comments in VS Code.",
+  "version": "0.0.1",
+  "publisher": "shareone",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.96.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onUri",
+    "onStartupFinished",
+    "onCommand:shareone.setApiKey",
+    "onCommand:shareone.publishOrUpdate",
+    "onCommand:shareone.publishCurrentFile",
+    "onCommand:shareone.publishWithOptions",
+    "onCommand:shareone.changeShareSettings",
+    "onCommand:shareone.openReview",
+    "onCommand:shareone.openManage",
+    "onView:shareoneComments"
+  ],
+  "main": "./dist/extension.js",
+  "files": [
+    "dist/",
+    "media/",
+    "README.md",
+    "package.json"
+  ],
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "vscode:prepublish": "npm run compile"
+  },
+  "contributes": {
+    "configuration": {
+      "title": "ShareOne",
+      "properties": {
+        "shareone.baseUrl": {
+          "type": "string",
+          "default": "https://shareone.vip",
+          "description": "ShareOne API base URL."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "shareone.publishOrUpdate",
+        "title": "ShareOne: Publish / Update...",
+        "icon": "$(rocket)"
+      },
+      {
+        "command": "shareone.setApiKey",
+        "title": "ShareOne: Set API Key",
+        "icon": "$(key)"
+      },
+      {
+        "command": "shareone.clearApiKey",
+        "title": "ShareOne: Clear API Key",
+        "icon": "$(trash)"
+      },
+      {
+        "command": "shareone.publishCurrentFile",
+        "title": "ShareOne: Publish Current File",
+        "icon": "$(cloud-upload)"
+      },
+      {
+        "command": "shareone.publishWithOptions",
+        "title": "ShareOne: Publish With Options",
+        "icon": "$(settings-gear)"
+      },
+      {
+        "command": "shareone.updateCurrentShare",
+        "title": "ShareOne: Update Existing Share",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "shareone.changeShareSettings",
+        "title": "ShareOne: Change Share Settings",
+        "icon": "$(settings)"
+      },
+      {
+        "command": "shareone.openReview",
+        "title": "ShareOne: Open Review Panel",
+        "icon": "$(comment-discussion)"
+      },
+      {
+        "command": "shareone.openManage",
+        "title": "ShareOne: Open Web Manage",
+        "icon": "$(globe)"
+      },
+      {
+        "command": "shareone.openShare",
+        "title": "ShareOne: Open Share",
+        "icon": "$(link-external)"
+      },
+      {
+        "command": "shareone.copyShareUrl",
+        "title": "ShareOne: Copy Share URL",
+        "icon": "$(copy)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "shareone",
+          "title": "ShareOne",
+          "icon": "media/shareone.svg"
+        }
+      ]
+    },
+    "views": {
+      "shareone": [
+        {
+          "id": "shareoneComments",
+          "name": "Links"
+        }
+      ]
+    },
+    "menus": {
+      "editor/title": [
+        {
+          "command": "shareone.publishOrUpdate",
+          "group": "navigation@50",
+          "when": "resourceScheme == file"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "shareone.publishOrUpdate",
+          "group": "shareone@1",
+          "when": "resourceScheme == file"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "shareone.publishOrUpdate",
+          "group": "shareone@1",
+          "when": "resourceScheme == file"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "shareone.openManage",
+          "when": "view == shareoneComments",
+          "group": "navigation@1"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "shareone.openShare",
+          "when": "view == shareoneComments && viewItem == shareoneShare",
+          "group": "navigation@1"
+        },
+        {
+          "command": "shareone.copyShareUrl",
+          "when": "view == shareoneComments && viewItem == shareoneShare",
+          "group": "navigation@2"
+        },
+        {
+          "command": "shareone.openReview",
+          "when": "view == shareoneComments && viewItem == shareoneShare",
+          "group": "navigation@3"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "@types/vscode": "^1.96.0",
+    "typescript": "^5.7.0"
+  }
+}
