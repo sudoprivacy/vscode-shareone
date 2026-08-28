@@ -7,8 +7,12 @@
   "license": "MIT",
   "homepage": "https://shareone.vip",
   "icon": "media/shareone.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sudoprivacy/vscode-shareone.git"
+  },
   "bugs": {
-    "url": "https://shareone.vip"
+    "url": "https://github.com/sudoprivacy/vscode-shareone/issues"
   },
   "qna": false,
   "engines": {
