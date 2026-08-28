@@ -27,7 +27,7 @@ npm run package:vsix
 Install the generated package locally:
 
 ```bash
-code --install-extension shareone-vscode-0.0.1.vsix
+code --install-extension shareone-vscode-0.1.0.vsix
 ```
 
 ## Publish To Visual Studio Marketplace
@@ -41,11 +41,11 @@ https://marketplace.visualstudio.com/manage
 Then run:
 
 ```bash
-npx @vscode/vsce login shareone
+npx @vscode/vsce login shareone-vip
 npm run publish:marketplace
 ```
 
-If your publisher ID is not `shareone`, update `publisher` in `package.json` before publishing.
+If your publisher ID is not `shareone-vip`, update `publisher` in `package.json` before publishing.
 
 ## CI Publishing
 
@@ -55,7 +55,7 @@ Marketplace publishing only runs when pushing a version tag such as `v0.0.1`.
 
 Before using CI publishing:
 
-1. Create or confirm the `shareone` publisher at:
+1. Create or confirm the `shareone-vip` publisher at:
 
    ```txt
    https://marketplace.visualstudio.com/manage
@@ -78,8 +78,8 @@ Before using CI publishing:
 4. For the first release, push a tag matching the current version:
 
    ```bash
-   git tag v0.0.1
-   git push origin v0.0.1
+   git tag v0.1.0
+   git push origin v0.1.0
    ```
 
 5. For later releases, bump the package version and push the generated tag:
@@ -98,7 +98,7 @@ Microsoft plans to retire global Azure DevOps PATs on December 1, 2026. Move thi
 Open VSX helps users on Cursor, VSCodium, Gitpod, Windsurf, and other VS Code-compatible editors find the extension.
 
 ```bash
-npx ovsx publish shareone-vscode-0.0.1.vsix
+npx ovsx publish shareone-vscode-0.1.0.vsix
 ```
 
 ## Discovery Checklist
