@@ -214,7 +214,7 @@ async function publishCurrentFile(
     if (!ensureWorkspaceFolder()) return;
     if (!(await ensureApiKey(storage, context))) return;
 
-    const options = withOptions ? await promptPublishOptions() : { allowComments: true };
+    const options = withOptions ? await promptPublishOptions() : { allowComments: false };
     if (!options) return;
 
     let publishResponse: PageResponse | undefined;

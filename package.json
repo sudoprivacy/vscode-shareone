@@ -2,7 +2,7 @@
   "name": "shareone-vscode",
   "displayName": "ShareOne: Publish Links and Review Comments",
   "description": "Publish HTML, Markdown, TXT, PDF, Word, and PowerPoint files as ShareOne links, then review comments in VS Code.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "shareone-vip",
   "license": "MIT",
   "homepage": "https://shareone.vip",

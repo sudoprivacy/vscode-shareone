@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.1
+
+- Direct publish no longer enables comments by default.
+- Publish With Options still allows comments to be enabled manually.
+
 ## 0.0.1
 
 - Initial ShareOne VS Code extension.
